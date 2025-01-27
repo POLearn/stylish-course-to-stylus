@@ -3,7 +3,7 @@
         "owner": "polearn",
         "name": "stylish-guide-to-stylus",
         "chain": "421614",
-        "title": "Stylish course to deploying Arbitrum Stylus Smart Contract",
+        "title": "Stylish course to Stylus Smart Contract development",
         "description": "This course guides you through deploying your the new Rust based Stylus contract on an EVM chain.",
         "image": "https://raw.githubusercontent.com/POLearn/stylish-guide-to-stylus/refs/heads/master/content/assets/cover.png",
         "type": "stylus"
