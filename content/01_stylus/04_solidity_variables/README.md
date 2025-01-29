@@ -41,6 +41,8 @@ These are just some of the global variables available in Stylus for accessing tr
 
 Let load this contract into an IDE or an a desired enviroment.
 
+`https://github.com/polearn/stylish-course-to-stylus/tree/master/contract/variable`
+
 This Rust struct, marked with `#[storage]`, defines persistent storage variables for a Stylus smart contract, similar to state variables in Solidity. The `initialized` field (`StorageBool`) tracks whether the contract has been set up, akin to a `bool` in Solidity. The `owner` field (`StorageAddress`) stores the contract owner's address, equivalent to `address` in Solidity. Lastly, `max_supply` (`StorageU256`) holds an unsigned integer value, similar to `uint256` in Solidity. These variables are stored on-chain and persist across transactions, just like Solidity's state variables.
 
 ```rust
