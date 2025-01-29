@@ -1,0 +1,1 @@
+https://arbitrum-stylus-by-example.vercel.app/basic_examples/mapping
