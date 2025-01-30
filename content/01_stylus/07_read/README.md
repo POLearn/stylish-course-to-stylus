@@ -18,10 +18,11 @@ these value methods can be used as getter methods allowing us to inspect contrac
 
 For this quest. Let's change it up. Load up the contract.
 
-![](variable_load.png)
+![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/variable_load.png)  
+
 
 Then similarly to the calling the init, you can click on the `max` method to call or **read** the of contract values. In the console you should get a response from the contract, which was the timestamp which that contract was called.
 
-![](variable_load.png)
+![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/variable_load.png)  
 
 Now submit the value in double quotes such its `"ANSWER"` to Proof of Learn to earn this quest.

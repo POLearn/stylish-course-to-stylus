@@ -89,13 +89,13 @@
             "bytecode": "0x2284d31026c0e666aff2071c2ca1d9af1aa33110b50b2a08887c1610b003c2f2"
         },
         {
-            "path": "02_solidity/02_mapping",
+            "path": "02_solidity/01_mapping",
             "type": "deployment",
             "chain": "421614",
             "bytecode": "0xff87af6de1fa14c08e6cdde132fb11a23a078842dadd28c28371f138aa888555"
         },
         {
-            "path": "02_solidity/03_setting_nested",
+            "path": "02_solidity/02_setting_nested",
             "type": "transaction",
             "chain": "421614",
             "abi": [
@@ -130,13 +130,13 @@
             ]
         },
         {
-            "path": "02_solidity/04_array",
+            "path": "02_solidity/03_array",
             "type": "deployment",
             "chain": "421614",
             "bytecode": "0x94b556ad1be900242e116382aabd8221253791446a4c551d4fce0450e14caa67"
         },
         {
-            "path": "02_solidity/06_setting_array",
+            "path": "02_solidity/04_setting_array",
             "type": "transaction",
             "chain": "421614",
             "abi": [

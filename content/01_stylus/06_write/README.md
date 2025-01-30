@@ -8,10 +8,10 @@ The `init` method is typically used to initialize the contract's state. In the c
 
 ## Quest: Calling the `init` Method
 
-![](contract_init.png)
+![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/contract_init.png)  
 
 With the smart contract deployed, you can call the `init` method. This method is a write operation, meaning it will modify the state of the contract. You typically call the `init` method through a transaction that is broadcast to the network.
 
-![](contract_init_success.png)
+![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/contract_init_success.png)  
 
 Now you can call the other methods such as `owner` and `max` to see the values. We will go through calling a smart contract in the next section.
