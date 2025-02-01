@@ -6,7 +6,7 @@ Storage in Stylus Rust SDK works similarly to Solidity, allowing smart contracts
 
 The `#[storage]` macro marks a Rust struct as persistent storage. Each field inside the struct must use a specialized storage type that implements the `StorageType` trait.  These storage types ensure that data is efficiently stored and retrieved from the blockchain.
 
-   ```rust
+```rust
    #[storage]
    pub struct Contract {
        owner: StorageAddress,  // Stores an Ethereum address

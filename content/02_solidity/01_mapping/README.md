@@ -1,7 +1,3 @@
-https://github.com/polearn/stylish-course-to-stylus/tree/master/contract/mapping
-Reference - https://arbitrum-stylus-by-example.vercel.app/basic_examples/mapping
-
-
 # Mappings  
 
 Mappings are fundamental data structures in Solidity, functioning as hash tables that store key-value pairs. They are commonly used for efficient storage and retrieval of data, such as tracking balances or ownership. Stylus, the Rust-based smart contract framework for Arbitrum, provides a similar concept using `StorageMap`.  
@@ -95,3 +91,6 @@ Now, let's **compile** and **deploy** the contract.
 After deploying, you might need to **activate** the contract, which could trigger a second transaction. Once that's done, you're all set!  
 
 Next, we’ll move on to **setting values in the nested mapping**. Also, don’t forget to **submit your transaction to Proof of Learn!** 🚀  
+
+You can also check out practical examples here:
+🔗 Arbitrum Stylus by Example – Mapping
