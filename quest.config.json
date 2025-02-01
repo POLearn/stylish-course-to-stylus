@@ -62,7 +62,7 @@
             ]
         },
         {
-            "path": "01_ape_coin/07_read",
+            "path": "01_stylus/07_read",
             "type": "data",
             "chain": "421614",
             "contract": "0x11D8B34Af8d486b47B90D9Ab105560D3f4aC99Ea",
@@ -81,12 +81,6 @@
                     "type": "function"
                 }
             ]
-        },
-        {
-            "path": "01_deploy_your_first_token/05_deploy",
-            "type": "deployment",
-            "chain": "421614",
-            "bytecode": "0x2284d31026c0e666aff2071c2ca1d9af1aa33110b50b2a08887c1610b003c2f2"
         },
         {
             "path": "02_solidity/01_mapping",
