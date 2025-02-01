@@ -4,6 +4,10 @@ The provided image uses Proof of Learn IDE, https://stylus.solide0x.tech/?url=ht
 
 ![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/token_contract.png)  
 
+Before we start looking into contract. MAKE SURE to set channel to `1.81.0` in `rust-toolchain.toml`
+
+![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/token_toolchain.png)  
+
 ### ERC20 ABI
 
 If you noticed, when we finished compiling, The compiler isn't able to provide the corresponding ABI. That is totally fine. If you are using Proof of Learn's IDE, then we is a **tab** that allows you to import the ABI.
