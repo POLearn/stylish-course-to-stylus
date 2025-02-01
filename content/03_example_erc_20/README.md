@@ -1,3 +1,0 @@
-# ERC-20 in Stylus
-
-In Solidity, the **ERC-20** standard defines a common set of rules for creating fungible tokens. These tokens are widely used in decentralized applications (dApps) to represent assets, currencies. The ERC-20 standard provides essential functionalities such as transferring tokens, allowing others to transfer tokens on behalf of the token holder, and tracking token balances. STylus as a smart contract can also have its the ERC-20 interface, where contracts can ensure compatibility with various platforms and wallets, enabling seamless token transfers and integrations. Here’s how you can interact with ERC-20 tokens in Stylus by following the established ERC-20 interface.

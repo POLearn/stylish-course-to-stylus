@@ -157,6 +157,35 @@
             "args": [
                 "421614"
             ]
+        },
+        {
+            "path": "03_stylus_erc_20/01_deploying_token",
+            "type": "656476",
+            "chain": "421614",
+            "bytecode": "0xbecad0e875f970a6a18518dea8370b73439b46e0f94897ec7a1b524358543b1f"
+        },
+        {
+            "path": "03_stylus_erc_20/02_mint_tokens",
+            "type": "transaction",
+            "chain": "656476",
+            "abi": [
+                {
+                    "inputs": [
+                        {
+                            "internalType": "uint256",
+                            "name": "value",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "mint",
+                    "outputs": [],
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                }
+            ],
+            "args": [
+                "1000000"
+            ]
         }
     ]
 }
