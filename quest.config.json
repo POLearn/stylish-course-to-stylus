@@ -16,38 +16,6 @@
             "bytecode": "0xe82f73fccbf57c63fa72c185f3d9b3990c575f0fc047f4d4ab98b973c7eb9334"
         },
         {
-            "path": "01_stylus/05_activating_the_contract",
-            "type": "transaction",
-            "chain": "421614",
-            "contract": "0x0000000000000000000000000000000000000071",
-            "abi": [
-                {
-                    "type": "function",
-                    "name": "activateProgram",
-                    "inputs": [
-                        {
-                            "name": "program",
-                            "type": "address",
-                            "internalType": "address"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "version",
-                            "type": "uint16",
-                            "internalType": "uint16"
-                        },
-                        {
-                            "name": "dataFee",
-                            "type": "uint256",
-                            "internalType": "uint256"
-                        }
-                    ],
-                    "stateMutability": "payable"
-                }
-            ]
-        },
-        {
             "path": "01_stylus/06_write",
             "type": "transaction",
             "chain": "421614",
