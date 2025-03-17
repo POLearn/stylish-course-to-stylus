@@ -1,8 +1,8 @@
-# 设置 setMyNestedMap
+# Setting setMyNestedMap
 
-现在我们已经部署了合约，接下来是使用 `setMyNestedMap` 函数在嵌套映射中**设置值**。这个函数允许我们更新 `my_nested_map` 中的特定条目。
+Now that we have our contract deployed, it's time to **set values** in our nested mapping using the `setMyNestedMap` function. This function allows us to update specific entries within the `my_nested_map`.
 
-让我们回顾一下函数定义。
+Let's take a quick recap.
 
 ```rust
 pub fn set_my_nested_map(&mut self, index: U256, target: Address, new_value: bool) {
@@ -10,20 +10,20 @@ pub fn set_my_nested_map(&mut self, index: U256, target: Address, new_value: boo
 }
 ```
 
-- **`index`**：这是主键（`U256`），用于标识外部映射。
-- **`target`**：你正在交互的账户的地址（`Address`）。
-- **`new_value`**：你想要设置的新布尔值。
+- **`index`**: This is the primary key (`U256`) that identifies the outer mapping.
+- **`target`**: The address (`Address`) of the account you're interacting with.
+- **`new_value`**: The new boolean value you wish to set.
 
-`setter()` 函数是导航嵌套结构的关键。首先，使用 `setter(index)` 访问与给定 `index` 关联的嵌套映射。然后，调用 `setter(target)` 到达特定地址。最后，使用 `.set(new_value)` 来更新值。
+The `setter()` function is key to navigating through the nested structure. First, we use `setter(index)` to access the nested mapping associated with the given `index`. Then, we call `setter(target)` to reach the specific address. Finally, we use `.set(new_value)` to update the value.
 
-### 任务：调用 `setMyNestedMap`
+### Quest: Call the `setMyNestedMap`
 
-为了完成这个任务，调用 `setMyNestedMap` 方法，传入以下值：将 **`index`** 设置为 `10`（一个 `U256` 键），提供一个有效的 **`target`** 地址（可以使用你自己的地址），并将 **`new_value`** 设置为 `true`（一个布尔值）。
+To complete this quest, call the `setMyNestedMap` method with the following values: set the **`index`** to `10` (a `U256` key), provide any valid **`target`** address (use your own address), and set the **`new_value`** to `true` (a boolean value).
 
 ![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/mapping_set.png)  
 
-你可以通过调用 `getMyNestedMap` 来测试该值。
+You can test the value by calling `getMyNestedMap`.
 
 ![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/mapping_value.png)
 
-最后，将交易提交到 Proof of Learn，以完成任务。这将帮助你与嵌套映射交互并修改合约状态。
+Finally, submit the transaction to Proof of Learn to complete the quest. This will help you interact with nested mappings and modify contract state.

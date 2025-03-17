@@ -1,41 +1,41 @@
-# 映射  
+# Mappings  
 
-映射是 Solidity 中的基本数据结构，作为哈希表存储键值对。它们通常用于高效存储和检索数据，例如跟踪余额或所有权。Stylus 是一个基于 Rust 的 Arbitrum 智能合约框架，它使用 `StorageMap` 提供了类似的概念。  
+Mappings are fundamental data structures in Solidity, functioning as hash tables that store key-value pairs. They are commonly used for efficient storage and retrieval of data, such as tracking balances or ownership. Stylus, the Rust-based smart contract framework for Arbitrum, provides a similar concept using `StorageMap`.  
 
-## Solidity 中的映射
+## Mappings in Solidity
 
-在 Solidity 中，映射使用 `mapping(keyType => valueType)` 语法声明。键可以是任何内建的值类型（例如 `uint`、`address`、`bytes`），值可以是任何类型，包括另一个映射或数组。然而，Solidity 中的映射是不可迭代的，意味着不能直接对它们进行循环遍历。  
+In Solidity, mappings are declared using the `mapping(keyType => valueType)` syntax. The key can be any built-in value type (e.g., `uint`, `address`, `bytes`), and the value can be any type, including another mapping or an array. However, mappings in Solidity are not iterable, meaning you cannot loop through them directly.  
 
 ```solidity
-// Solidity 映射示例
+// Solidity mapping example
 mapping(address => uint256) public balances;
 ```
 
-## Stylus 中的映射
+## Mappings in Stylus
 
-在 Stylus 中，映射通过 `StorageMap<keyType, StorageType>` 来实现，遵循 Rust 的语法。`keyType` 必须是来自 `alloy_primitives` 的类型，而 `valueType` 必须是支持的 `StorageType`。这种结构确保了基于 Rust 的智能合约中高效的键值存储。  
+In Stylus, mappings are implemented using `StorageMap<keyType, StorageType>`, which follows Rust’s syntax. The `keyType` must be a type from `alloy_primitives`, while the `valueType` must be a supported `StorageType`. This structure ensures efficient key-value storage in Rust-based smart contracts.  
 
 ```rust
-// Stylus Rust 映射示例
+// Stylus Rust mapping example
 #[storage]
 pub struct Contract {
     balances: StorageMap<Address, StorageU256>,
 }
 ```
 
-### 差异与相似性
+### Differences & Similarities
 
-| 特性          | Solidity                     | Stylus (Rust)              |
+| Feature        | Solidity                     | Stylus (Rust)              |
 |---------------|-----------------------------|----------------------------|
-| 语法          | `mapping(keyType => valueType)` | `StorageMap<keyType, StorageType>` |
-| 键类型        | 内建类型，`bytes`，`string`，合约地址 | 来自 `alloy_primitives` 的类型 |
-| 值类型        | 任何类型，包括其他映射或数组 | 任何 `StorageType` |
-| 可迭代性      | 不可迭代                     | 不可迭代                   |
+| Syntax        | `mapping(keyType => valueType)` | `StorageMap<keyType, StorageType>` |
+| Key Types     | Built-in types, `bytes`, `string`, contract addresses | Types from `alloy_primitives` |
+| Value Types   | Any type, including other mappings or arrays | Any `StorageType` |
+| Iterability   | Not iterable                 | Not iterable               |
 
-### 映射合约
+### Mapping contract
 
-在这一部分，我们将深入探讨 Stylus 中的映射和嵌套映射。你可以在这里访问完整的源代码：  
-👉 [GitHub 仓库](https://github.com/POLearn/stylish-course-to-stylus/tree/master/contract/mapping)  
+In this section, we'll dive into mappings and nested mappings in Stylus. You can access the full source code here:  
+👉 [GitHub Repository](https://github.com/POLearn/stylish-course-to-stylus/tree/master/contract/mapping)  
 
 ![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/mapping_contract.png)
 
@@ -49,48 +49,48 @@ sol_storage! {
 }
 ```  
 
-这是合约的 *入口点*。如你所记得，`sol_storage!` 定义了合约的存储结构，允许我们创建类似 Solidity 的映射变量，同时利用 Rust 的语法。  
+This is the *entrypoint* of the contract. As you may recall, `sol_storage!` defines the contract’s storage structure, allowing us to create mapping variables similar to Solidity while leveraging Rust’s syntax.  
 
-- **`my_map`**：一个简单的映射，将 `address` 与 `bool` 关联，适用于跟踪权限、白名单或其他标志。  
-- **`my_nested_map`**：一个 **嵌套映射**，其中 `uint256` 键（例如 ID）映射到另一个 `mapping(address => bool)`。这种结构通常用于跟踪审批、基于角色的访问或多级权限。  
+- **`my_map`**: A simple mapping that associates an `address` with a `bool`, making it useful for tracking permissions, whitelists, or other flags.  
+- **`my_nested_map`**: A **nested mapping** where a `uint256` key (such as an ID) maps to another `mapping(address => bool)`. This structure is commonly used for tracking approvals, role-based access, or multi-level permissions.  
 
-现在，让我们探索如何在 Stylus 中与 **嵌套映射** 进行交互。以下函数允许我们 **读取**、**更新** 和 **删除** `my_nested_map` 中的值。  
+Now, let’s explore how to interact with **nested mappings** in Stylus. The following functions allow us to **read**, **update**, and **remove** values within `my_nested_map`.  
 
 ```rust
 pub fn get_my_nested_map(&self, index: U256, target: Address) -> bool {
     self.my_nested_map.get(index).get(target)
 }
 
-// 更新该地址的值
+// Update the value at this address
 pub fn set_my_nested_map(&mut self, index: U256, target: Address, new_value: bool) {
     self.my_nested_map.setter(index).setter(target).set(new_value);
 }
 
-// 将值重置为默认值。
+// Reset the value to the default value.
 pub fn remove_my_nested_map(&mut self, index: U256, target: Address) {
     self.my_nested_map.setter(index).delete(target);
 }
 ```
 
-- **`get_my_nested_map`**：这个函数使用 `.get()` 方法检索存储的值。首先，它访问特定 `index`（一个 `U256` 键）下的映射，然后检索与 `target` 地址相关联的布尔值。这对于检查权限或跟踪审批非常有用。  
+- **`get_my_nested_map`**: This function retrieves a stored value using the `.get()` method. First, it accesses the mapping at a specific `index` (a `U256` key), then retrieves the boolean value linked to a `target` address. This is useful for checking permissions or tracking approvals.  
 
-- **`set_my_nested_map`**：要更新或插入值，使用 `.setter()` 函数导航嵌套映射，然后调用 `.set(new_value)`。第一个 `.setter(index)` 访问 `index` 下的映射，而第二个 `.setter(target)` 访问特定地址。最后，`.set(new_value)` 更新布尔值。  
+- **`set_my_nested_map`**: To update or insert values, the `.setter()` function is used to navigate through the nested mappings before calling `.set(new_value)`. The first `.setter(index)` accesses the mapping at `index`, while the second `.setter(target)` reaches the specific address. Finally, `.set(new_value)` updates the boolean value.  
 
-- **`remove_my_nested_map`**：`.delete()` 函数重置映射条目，有效地移除存储的数据。通过使用 `.setter(index).delete(target)`，我们清除了给定 `index` 下的 `target` 的映射，这对于撤销权限或重置值非常有用。  
+- **`remove_my_nested_map`**: The `.delete()` function resets a mapping entry, effectively removing stored data. By using `.setter(index).delete(target)`, we clear the mapping for a given `target` at a specific `index`, which is useful for revoking permissions or resetting values.  
 
-现在你理解了嵌套映射的工作原理，`my_map` 功能是同一概念的 **简化版**。它使用相同的方法——`.get()`、`.setter()`、`.set()` 和 `.delete()`——来对 **单层映射** 执行 **CRUD（创建、读取、更新、删除）** 操作，而不是嵌套映射。
+Now that you understand how nested mappings work, the `my_map` functionality is a **simpler** version of the same concept. It uses the same methods—`.get()`, `.setter()`, `.set()`, and `.delete()`—to perform **CRUD (Create, Read, Update, Delete)** operations on a **single-layer mapping** instead of a nested one.
 
-### 任务：编译与部署  
+### Quest: Compiling and Deploying  
 
-现在，让我们 **编译** 并 **部署** 合约。  
+Now, let's **compile** and **deploy** the contract.  
 
-![编译](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/mapping_compile.png)  
+![Compiling](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/mapping_compile.png)  
 
-![部署](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/mapping_deploy.png)  
+![Deploying](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/mapping_deploy.png)  
 
-部署后，你可能需要 **激活** 合约，这可能会触发第二次交易。完成后，你就准备好了！  
+After deploying, you might need to **activate** the contract, which could trigger a second transaction. Once that's done, you're all set!  
 
-接下来，我们将继续 **设置嵌套映射中的值**。同时，别忘了 **提交你的交易到 Proof of Learn！** 🚀  
+Next, we’ll move on to **setting values in the nested mapping**. Also, don’t forget to **submit your transaction to Proof of Learn!** 🚀  
 
-你还可以在这里查看实际示例：
-🔗 Arbitrum Stylus 通过示例 – 映射
+You can also check out practical examples here:
+🔗 Arbitrum Stylus by Example – Mapping

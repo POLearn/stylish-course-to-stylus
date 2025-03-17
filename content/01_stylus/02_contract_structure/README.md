@@ -1,28 +1,24 @@
-# Stylus 智能合约项目结构  
+# Stylus smart contract project structure
 
-一个典型的 **Stylus 合约** 由两个主要的 Rust 文件组成：`lib.rs` 和 `main.rs`。每个文件承担不同的角色，共同构建完整的智能合约。  
+A typical **Stylus contract** in Rust consists of two main files: `lib.rs` and `main.rs`. Each file has its distinct role, providing the structure and logic that together form the complete contract. Let’s break down how these files work together:
 
----
+## `lib.rs` – Core Contract Logic
 
-## `lib.rs` – 核心合约逻辑  
+In `lib.rs`, the contract logic is defined. This file contains the main business logic of the smart contract, including the data structures, entry points, and functions that interact with the blockchain. 
 
-`lib.rs` 主要定义智能合约的核心逻辑。这个文件包含 **业务逻辑**，包括数据结构、合约入口点以及与区块链交互的函数。  
+If we take a look at the previous Ownable Rust code, we can see this is a typically structure of a contract, containing
 
-从之前的 **Ownable** 智能合约示例可以看出，`lib.rs` 的结构通常包含：  
+- **`#[storage]`**: Marks the struct `Ownable` as a storage structure. It holds the state of the contract (e.g., the `owner` variable in this case).
+- **`#[entrypoint]`**: Defines the entry point to the contract, marking the functions that can be called externally.
+- **`#[external]`**: The functions under this annotation are exposed to the blockchain. In this example, `owner` and `set_owner` are external functions, with `set_owner` changing the contract's state.
 
-- **`#[storage]`**：标记 `Ownable` 结构体为存储结构，持久化合约状态（例如 `owner` 变量）。  
-- **`#[entrypoint]`**：定义合约的 **入口点**，标记可以被外部调用的函数。  
-- **`#[external]`**：标记外部可访问的函数，如 `owner`（获取所有者）和 `set_owner`（设置所有者）。  
+This is where most of the contract’s core logic resides, allowing it to interact with the blockchain and store important state information like the contract owner.
 
-大部分合约逻辑都在这里定义，包括存储变量、状态修改逻辑以及与区块链的交互。  
+## `main.rs` – Initialization and ABI Export
 
----
+The `main.rs` file in a Stylus contract typically contains the initialization logic and is crucial for managing how the contract is executed or deployed. It also handles things like exporting the ABI (Application Binary Interface) and other initialization routines.
 
-## `main.rs` – 初始化和 ABI 导出  
-
-`main.rs` 主要负责合约 **初始化**，确保合约能够正确执行和部署。此外，它还管理 ABI（应用二进制接口）导出等功能。  
-
-### `main.rs` 结构示例  
+Here’s an example of how **`main.rs`** is structured:
 
 ```rust
 #![cfg_attr(not(any(test, feature = "export-abi")), no_main)]
@@ -37,57 +33,12 @@ fn main() {
 }
 ```
 
-### 关键部分解析  
+- **`#[cfg]`**: Conditional compilation is used here. If the feature `export-abi` is enabled, it will generate the ABI information, making it accessible to users who may need to interact with the contract.
+- **`no_main`**: If not exporting ABI or in a testing environment, this prevents the default main function from being compiled into the contract, which is important for minimal contract size.
+- **`print_abi`**: This function will print the ABI when the `export-abi` feature is enabled, which helps in generating and verifying the interface of the contract.
 
-- **`#[cfg]`**：条件编译，确保 `export-abi` 功能启用时可以导出 ABI，否则默认 `main` 为空。  
-- **`no_main`**：如果没有启用 `export-abi`，就不会编译默认的 `main` 函数，减少合约大小。  
-- **`print_abi`**：当 `export-abi` 启用时，打印合约 ABI，方便与 Solidity 等其他语言交互。  
+While **`lib.rs`** contains the core logic of the contract, **`main.rs`** manages initialization tasks, handles ABI generation, and ensures that the contract is ready for deployment on the blockchain.
 
-`lib.rs` 负责合约核心逻辑，而 `main.rs` 主要用于 **初始化、管理 ABI 以及部署前的设置**。  
+## Cargo.toml
 
----
-
-## `Cargo.toml` – Rust 项目配置  
-
-`Cargo.toml` 是 **Stylus 智能合约的项目配置文件**，用于定义项目的元数据、依赖项以及构建配置。  
-
-### 关键内容  
-
-```toml
-[package]
-name = "stylus_contract"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-stylus-sdk = "0.1"
-alloy-primitives = "0.2"
-mini-alloc = "0.4"
-
-[features]
-export-abi = []
-debug = []
-```
-
-### 重要部分解析  
-
-- **`[dependencies]`**：  
-  - `stylus-sdk`：Stylus 合约开发的核心库。  
-  - `alloy-primitives`：提供以太坊兼容的类型（如 `Address`）。  
-  - `mini-alloc`：轻量级内存管理，提高智能合约执行效率。  
-
-- **`[features]`**：  
-  - `export-abi`：启用 ABI 导出功能，方便与外部系统交互。  
-  - `debug`：调试模式，便于开发过程中进行日志记录和错误排查。  
-
----
-
-## 总结  
-
-一个完整的 **Stylus 智能合约** 由以下三部分组成：  
-
-1. **`lib.rs`** - **核心合约逻辑**（数据存储、状态管理、业务逻辑）。  
-2. **`main.rs`** - **初始化与 ABI 导出**（合约执行管理、部署前设置）。  
-3. **`Cargo.toml`** - **项目配置**（定义元数据、依赖项、构建功能）。  
-
-这套结构让 **Stylus 智能合约既保持了 Rust 代码的可读性，又兼具 Solidity 开发的易用性**，使 Solidity 开发者可以更轻松地过渡到 Rust 生态中的智能合约开发。 🚀
+Since this is a Rust program as well, an important configuration file is the `Cargo.toml` which is the manifest for a Stylus smart contract, defining essential metadata, dependencies, and build configurations. Note here we have `[dependencies]` section includes key libraries such as `stylus-sdk` for smart contract development, `alloy-primitives` for Ethereum-compatible types, and `mini-alloc` for efficient memory allocation. The `[features]` section enables optional functionalities like ABI export and debugging, which is often included as it'll allow the contract to to easily generate an ABI and smart contract for deployment

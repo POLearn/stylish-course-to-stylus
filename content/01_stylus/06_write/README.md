@@ -1,17 +1,17 @@
-# 调用智能合约方法
+# Calling a smart contract method
 
-在本指南中，我们将向您介绍如何调用 `init` 方法，这是合约中的一个写方法。写方法是修改或设置合约状态的函数，例如更改变量、更新值或执行会改变区块链状态的操作。
+In this guide, we’ll walk you through how to call the `init` method, which is a write method in a contract. A write method is a function that modifies or sets the state of the contract, such as changing variables, updating values, or performing actions that change the blockchain's state.
 
 ## init
 
-`init` 方法通常用于初始化合约的状态。在合约示例中，它设置了 `owner` 和 `max_supply` 变量。它通常作为一个一次性设置函数，仅在合约首次部署或第一次调用时运行。
+The `init` method is typically used to initialize the contract's state. In the case of the contract example, it sets the `owner` and `max_supply` variables. It is often used as a one-time setup function that only runs once when the contract is first deployed or when it is called for the first time.
 
-## 任务：调用 `init` 方法
+## Quest: Calling the `init` Method
 
 ![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/contract_init.png)  
 
-在智能合约部署后，您可以调用 `init` 方法。该方法是一个写操作，这意味着它将修改合约的状态。您通常通过一个广播到网络的交易来调用 `init` 方法。
+With the smart contract deployed, you can call the `init` method. This method is a write operation, meaning it will modify the state of the contract. You typically call the `init` method through a transaction that is broadcast to the network.
 
 ![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/contract_init_success.png)  
 
-现在，您可以调用其他方法，如 `owner` 和 `max` 来查看这些值。我们将在下一部分讨论如何调用智能合约的方法。
+Now you can call the other methods such as `owner` and `max` to see the values. We will go through calling a smart contract in the next section.

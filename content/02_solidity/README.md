@@ -1,27 +1,23 @@
-## 深入探索 Stylus 中的映射和数组
+Now that we've deployed a simple contract and understood the structure and basics of Rust-based Stylus contracts, let's dive deeper into more complex types used in Solidity that can also be applied in Stylus.
 
-### Mappings
+## Mappings
 
-在 Stylus 中，**映射**与 Solidity 中的哈希表类似，允许你将数据存储为键值对。键可以是任何内置类型，而值则可以是任何你需要存储的数据类型。
+In Stylus, mappings are similar to Solidity's hash tables, allowing you to store data as key-value pairs. The key can be any built-in type, and the value can be any type of data you need to store. 
 
-在 Rust 中，映射是通过 `StorageMap<keyType, StorageType>` 来创建的，其中 `keyType` 通常来自 `alloy_primitives`，`StorageType` 则是任何符合需求的类型（如 `StorageU256`、`StorageAddress` 等）。
+In Rust, mappings are created with `StorageMap<keyType, StorageType>`, where `keyType` is typically from `alloy_primitives` and `StorageType` is any type that fits your needs (such as `StorageU256`, `StorageAddress`, etc.). 
 
-在 Solidity 中，映射通过以下语法声明：`mapping(keyType => valueType)`，其中 `keyType` 可以是基本类型，如 `uint`、`address`、`string`，甚至是另一个合约，`valueType` 可以是任何类型，包括数组或其他映射。
+In Solidity, mappings are declared with the syntax `mapping(keyType => valueType)`, where `keyType` can be basic types like `uint`, `address`, `string`, or even another contract, and `valueType` can be any type, including arrays or other mappings.
 
-**重要提示**：映射是**不可迭代的**，这意味着你无法直接循环遍历它们，必须拥有每个键的引用才能访问其对应的值。
+One thing to remember: **Mappings are not iterable**. This means you cannot loop through them directly, and you must have a reference to each key to access its corresponding value.
 
-### Arrays
+## Arrays
 
-在 Stylus 中，**数组**的工作方式与 Solidity 相似，但在声明和使用时有一些关键的不同点。
+Arrays in Stylus work similarly to Solidity, but there are some key differences when it comes to how they're declared and used.
 
-1. **动态大小数组**：这些数组可以在运行时调整大小，意味着可以根据需要添加或删除元素。它们灵活且广泛使用，适用于事先无法确定数组大小的情况。
+1. **Dynamic-Size Arrays:** These arrays can change size at runtime, meaning elements can be added or removed as needed. They are flexible and widely used when the size of the data structure is unknown beforehand.
 
-2. **固定大小数组**：这些数组的大小在编译时确定，一旦设置，大小就无法改变。如果你知道需要存储的元素的确切数量，固定大小数组非常有用。
+2. **Fixed-Size Arrays:** These arrays have a size that is determined at compile time. Once the size is set, it cannot be changed, which can be useful when you know the exact number of elements you need to store.
 
-3. **自定义结构体元素数组**：数组也可以存储更复杂的数据类型，如结构体。在这种情况下，数组中的每个元素都是一个自定义结构体，允许进行高度组织的数据存储。
+3. **Custom Struct Element Arrays:** Arrays can also store more complex data types like structs. In this case, each element in the array is a custom struct, allowing for highly organized data storage.
 
-在 Stylus 中，数组提供了与 Solidity 相同的多样性，允许你根据合约的需求自由选择动态数组或固定大小数组。
-
-### 总结
-
-映射和数组在 Stylus 中的应用类似于 Solidity，适用于各种数据存储和结构设计需求。你可以根据合约的具体要求选择不同的实现方式。随着对这些更复杂类型的理解深入，你可以在 Stylus 中构建更强大、更灵活的智能合约。
+Arrays in Stylus provide the same versatility as in Solidity, giving you the freedom to choose between dynamic or fixed sizes depending on your contract's needs.
