@@ -1,28 +1,28 @@
-# Welcome to the stylish course to Stylus smart contract development  
+# 스타일리시한 스타일러스 스마트 계약 개발 과정에 오신 것을 환영합니다
 
-Hi 👋 and welcome to a new exiciting resource that will introduce you to **Stylus** and its incredible potential for blockchain development. Whether you're new or a seasoned developer looking to expand your toolkit, this course provides an engaging and practical learning experience. You’ll go beyond theory, gaining hands-on experience by building and deploying **Rust-based Stylus contracts** and integrating them with Solidity.  
+안녕하세요 👋 새로운 자원에 오신 것을 환영합니다. 이 자원은 **Stylus**와 그것의 블록체인 개발 잠재력에 대해 소개할 것입니다. 블록체인 개발에 새로 오신 분이든, 도구 키트를 확장하려는 숙련된 개발자이든, 이 과정은 흥미롭고 실용적인 학습 경험을 제공합니다. 이론을 넘어서, **Rust 기반의 Stylus 계약**을 작성하고 배포하며 Solidity와 통합하는 실습을 통해 경험을 쌓을 수 있습니다.
 
-The ultimate goal is to help you confidently leverage Stylus to create cutting-edge decentralized applications (dApps) that are faster, more efficient, and ready for the future on Arbitrum and its related chains.
+궁극적인 목표는 Stylus를 활용하여 더 빠르고 효율적인, 미래 지향적인 **탈중앙화 애플리케이션 (dApps)**을 자신 있게 만들 수 있도록 돕는 것입니다. 이 과정은 Arbitrum과 관련 체인에서 준비된 애플리케이션을 위한 것입니다.
 
-### Learning Objectives  
+### 학습 목표
 
-By the end of this course, you'll master:  
+이 과정을 마친 후에는 다음을 마스터하게 될 것입니다:
 
-1. **Stylus Fundamentals** – What it is, why it matters, and its role in Arbitrum.  
-2. **Programming with Stylus** – Writing smart contracts in Rust and WASM.  
-3. **Solidity Interoperability** – Calling Stylus contracts from Solidity and building hybrid dApps.  
-4. **Deploying Stylus Contracts** – Setting up, compiling, deploying, and testing on Arbitrum.  
-5. **Advanced Use Cases** – Optimizing performance for zk-proofs, games, and generative art.  
-6. **Blockchain Essentials** – Smart contracts, gas efficiency, and Solidity basics.  
+1. **Stylus 기초** – Stylus가 무엇인지, 왜 중요한지, Arbitrum에서의 역할.
+2. **Stylus로 프로그래밍하기** – Rust와 WASM을 사용하여 스마트 계약 작성.
+3. **Solidity 상호운용성** – Solidity에서 Stylus 계약 호출 및 하이브리드 dApp 구축.
+4. **Stylus 계약 배포** – Arbitrum에서 설정, 컴파일, 배포 및 테스트.
+5. **고급 사용 사례** – zk-증명, 게임, 생성적 예술을 위한 성능 최적화.
+6. **블록체인 필수 사항** – 스마트 계약, 가스 효율성, Solidity 기초.
 
-### Earn Your POAP: Proof of Participation  
+### POAP 받기: 참여 증명
 
-As a fun and rewarding conclusion to your learning journey, you’ll mint a **Proof of Attendance Protocol (POAP)** NFT! This NFT will certify your completion of the course, showcasing your mastery of Stylus. It will also serve as a badge of recognition in the blockchain community, verifying that you’ve gained real, on-chain knowledge.  
+학습 여정의 마지막 단계에서 **참석 증명 프로토콜(POAP)** NFT를 민팅하여 완료를 인증합니다! 이 NFT는 당신이 이 과정을 마쳤음을 인증하며 Stylus에 대한 숙련도를 보여줍니다. 또한 블록체인 커뮤니티에서 당신이 실제로 온체인 지식을 습득했음을 인증하는 배지 역할을 합니다.
 
-Minting your POAP will be one of the final steps in this course, providing hands-on experience with deploying contracts and interacting with the blockchain. Not only will you learn by doing—you’ll walk away with a tangible reward for your hard work.  
+POAP 민팅은 계약을 배포하고 블록체인과 상호작용하는 실습 경험을 제공합니다. 이 과정을 통해 배운 내용을 실습하면서, 노력에 대한 tangible 보상도 얻을 수 있습니다.
 
-### Why This Course Matters  
+### 왜 이 과정이 중요한가?
 
-Stylus is the future of blockchain development, and this course is your first step into that future. Whether you’re looking to build cutting-edge dApps, optimize your existing projects, or simply explore the possibilities of WASM on the blockchain, this course will equip you with the skills and confidence to get started.  
+Stylus는 블록체인 개발의 미래이며, 이 과정은 그 미래로 가는 첫 걸음입니다. 최첨단 dApp을 구축하거나 기존 프로젝트를 최적화하거나, 단순히 블록체인에서 WASM의 가능성을 탐색하려는 경우, 이 과정은 시작하는 데 필요한 기술과 자신감을 제공합니다.
 
-Let’s build something extraordinary together! 🚀  
+함께 멋진 것을 만들어봅시다! 🚀
