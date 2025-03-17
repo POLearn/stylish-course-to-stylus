@@ -1,11 +1,11 @@
-# Quest: Mint Your Token! 🚀
+# 任务：铸造你的代币！🚀
 
-Now that your Stylus ERC20 contract is deployed, you can interact with it just like any ERC20 token on Ethereum or Base. But here's the twist—this token is built using Rust and runs on an EVM-compatible chain like EDU Chain. Cool, right? 🎉 
+现在你的 Stylus ERC20 合约已经部署完成，你可以像在以太坊或 Base 上的 ERC20 代币一样与它进行交互。但这里有个小惊喜——这个代币是使用 Rust 构建的，并且运行在一个像 EDU Chain 这样的 EVM 兼容链上。酷吧？🎉
 
-In this section, we'll walk you through minting a simple `1000000` tokens and sending them to your own address. Let's break down how this works. The code below is the `mint` function in the deployed contract which allows us to create new tokens and assign them to an address. The function takes a `value` parameter (in our case, `1000000` tokens) and calls the ERC20 `mint` method we defined earlier. It uses `msg::sender()` to grab the address that initiated the minting and assigns the tokens to it. In simple terms, this function enables us to generate fresh tokens and send them to the user who called the function.
+在本节中，我们将带你完成铸造简单的 `1000000` 个代币并将它们发送到你自己的地址的过程。让我们分解一下它是如何工作的。下面的代码是已部署合约中的 `mint` 函数，它允许我们创建新代币并将它们分配给一个地址。该函数接受一个 `value` 参数（在我们的例子中是 `1000000` 个代币），并调用我们之前定义的 ERC20 `mint` 方法。它使用 `msg::sender()` 来获取发起铸造请求的地址，并将代币分配给该地址。简单来说，这个函数使我们能够生成新代币并将其发送给调用该函数的用户。
 
 ```rust
-/// Mints tokens
+/// 铸造代币
 pub fn mint(&mut self, value: U256) -> Result<(), Erc20Error> {
     self.erc20.mint(msg::sender(), value)?;
     Ok(())
@@ -14,9 +14,9 @@ pub fn mint(&mut self, value: U256) -> Result<(), Erc20Error> {
 
 ![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/token_mint.png)  
 
-Once you've minted your tokens, don’t forget to submit the transaction to Proof of Learn and show off your progress! 
+一旦你铸造了代币，别忘了将交易提交到 Proof of Learn 并展示你的进度！
 
-Minting tokens is the process of creating new tokens and sending them to a specific address. With ERC20 tokens, this operation not only adds tokens to an account but also unlocks all the cool features of ERC20 tokens like transferring, checking balances, and more. To check your token balance, simply call `balanceOf` with the address that minted the tokens (or any address, for that matter)!
+铸造代币是创建新代币并将它们发送到特定地址的过程。通过 ERC20 代币，这个操作不仅会将代币添加到账户中，还会解锁 ERC20 代币的所有酷炫功能，比如转账、检查余额等。要查看你的代币余额，只需调用 `balanceOf` 并提供铸造代币的地址（或者任何地址）！
 
 ![](https://raw.githubusercontent.com/POLearn/stylish-course-to-stylus/refs/heads/master/content/assets/images/token_balanceof.png)  
 
